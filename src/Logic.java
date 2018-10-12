@@ -9,7 +9,6 @@ public class Logic {
 			
 			if(difference <= i) {
 				
-				
 				if(difference <= 1) {
 					
 					numOfPartitions++;
@@ -27,6 +26,7 @@ public class Logic {
 	}
 	
 	private static int numOfPartitionsAfterNum(int num, int realNum) {
+		
 		int numOfPartitions = 0;
 		
 		for(int i = realNum; i > 0; i--) {
@@ -34,6 +34,8 @@ public class Logic {
 			int difference = num - i;
 			
 			if(difference <= i) {
+				
+				
 				if(difference <= 1) {
 					
 					numOfPartitions++;
@@ -43,7 +45,7 @@ public class Logic {
 				}
 			} else {
 				
-				numOfPartitions += numOfPartitions(i);
+				numOfPartitions += numOfPartitionsAfterNum(difference, i);
 			}
 		}
 		
