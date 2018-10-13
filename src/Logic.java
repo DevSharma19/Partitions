@@ -25,16 +25,15 @@ public class Logic {
 		return numOfPartitions;
 	}
 
-	private static int numOfPartitions(int num, int realNum) {
+	private static int numOfPartitions(int realNum, int num) {
 
 		int numOfPartitions = 0;
 
-		for(int i = realNum; i > 0; i--) {
+		for(int i = num; i > 0; i--) {
 
-			int difference = num - i;
+			int difference = realNum - i;
 
 			if(difference <= i) {
-
 
 				if(difference <= 1) {
 
