@@ -14,12 +14,12 @@ public class Driver {
 		int[][] partitions = Logic.partitions(choice);
 		for (int[] i : partitions) {
 			
-			System.out.println();
 			for (int j : i) {
 				
-				if(j != 0)
+				//if(j != 0)
 					System.out.print(j + ", ");
 			}
+			System.out.print('\n');
 		}
 		
 		sc.close();
