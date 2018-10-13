@@ -81,9 +81,71 @@ public class Logic {
 					}
 				}
 			} else {
+
+				int[][] partitionsOfDifference = partitions(difference, numCopy);
+				for(int i = 0; i < partitionsOfDifference.length; i++) {
+
+					partitions[inc][0] = numCopy;
+					for(int j = 1; j <= partitionsOfDifference[0].length; j++) {
+
+						partitions[inc][j] = partitionsOfDifference[i][j - 1];
+					}
+
+					if(i != partitionsOfDifference.length - 1)
+						inc++;
+				}
 			}
 		}
 
 		return partitions;
+	}
+
+	public static int[][] partitions(int realNum, int num) {
+		int[][] partitions = new int[numOfPartitions(realNum, num)][realNum];
+
+		for(int numCopy = num, inc = 0; numCopy > 0; numCopy--, inc++) {
+
+			int difference = realNum - numCopy;
+
+			if(difference <= numCopy) {
+
+				if(difference <= 1) {
+
+					partitions[inc][0] = numCopy;
+
+					if(difference != 0)
+						partitions[inc][1] = difference;
+				} else {
+
+					int[][] partitionsOfDifference = partitions(difference);
+					for(int i = 0; i < partitionsOfDifference.length; i++) {
+
+						partitions[inc][0] = numCopy;
+						for(int j = 1; j <= partitionsOfDifference[0].length; j++) {
+
+							partitions[inc][j] = partitionsOfDifference[i][j - 1];
+						}
+
+						if(i != partitionsOfDifference.length - 1)
+							inc++;
+					}
+				}
+			} else {
+				int[][] partitionsOfDifference = partitions(difference, numCopy);
+				for(int i = 0; i < partitionsOfDifference.length; i++) {
+
+					partitions[inc][0] = numCopy;
+					for(int j = 1; j <= partitionsOfDifference[0].length; j++) {
+
+						partitions[inc][j] = partitionsOfDifference[i][j - 1];
+					}
+
+					if(i != partitionsOfDifference.length - 1)
+						inc++;
+				}
+			}
+		}
+
+	return partitions;
 	}
 }
