@@ -9,9 +9,10 @@ public class Driver {
 		int choice = sc.nextInt();
 
 		int numOfPartitions = Logic.numOfPartitions(choice);
-		System.out.println('\n' + choice + " has " + numOfPartitions + " partitions" + '\n');
+		System.out.println(choice + " has " + numOfPartitions + " partitions" + '\n');
 
 		int[][] partitions = Logic.partitions(choice);
+		System.out.println("The partitions are: ");
 		for (int[] i : partitions) {
 
 			for (int j : i) {
